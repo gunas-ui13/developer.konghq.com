@@ -29,14 +29,7 @@
     "config": {
       "type": "object",
       "properties": {
-        "ws_close": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "default": []
-        },
-        "rewrite": {
+        "log": {
           "type": "array",
           "items": {
             "type": "string"
@@ -44,6 +37,13 @@
           "default": []
         },
         "header_filter": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "ws_handshake": {
           "type": "array",
           "items": {
             "type": "string"
@@ -64,7 +64,21 @@
           },
           "default": []
         },
+        "ws_close": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
         "certificate": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "rewrite": {
           "type": "array",
           "items": {
             "type": "string"
@@ -79,20 +93,6 @@
           "default": []
         },
         "body_filter": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "default": []
-        },
-        "log": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "default": []
-        },
-        "ws_handshake": {
           "type": "array",
           "items": {
             "type": "string"

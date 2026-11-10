@@ -1,20 +1,5 @@
 {
   "properties": {
-    "config": {
-      "type": "object",
-      "properties": {
-        "client_max_payload": {
-          "type": "integer",
-          "maximum": 33554432,
-          "minimum": 1
-        },
-        "upstream_max_payload": {
-          "type": "integer",
-          "maximum": 33554432,
-          "minimum": 1
-        }
-      }
-    },
     "protocols": {
       "type": "array",
       "items": {
@@ -30,15 +15,20 @@
         "wss"
       ]
     },
-    "consumer": {
+    "config": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
+        "client_max_payload": {
+          "type": "integer",
+          "maximum": 33554432,
+          "minimum": 1
+        },
+        "upstream_max_payload": {
+          "type": "integer",
+          "maximum": 33554432,
+          "minimum": 1
         }
-      },
-      "additionalProperties": false,
-      "description": "If set, the policy will activate only for requests where the specified has been authenticated. (Note that some policies can not be restricted to consumers this way.). Leave unset for the policy to activate regardless of the authenticated Consumer."
+      }
     },
     "route": {
       "type": "object",
@@ -59,6 +49,16 @@
       },
       "additionalProperties": false,
       "description": "If set, the policy will only activate when receiving requests via one of the routes belonging to the specified Service. Leave unset for the policy to activate regardless of the Service being matched."
+    },
+    "consumer": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "description": "If set, the policy will activate only for requests where the specified has been authenticated. (Note that some policies can not be restricted to consumers this way.). Leave unset for the policy to activate regardless of the authenticated Consumer."
     }
   }
 }

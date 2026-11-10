@@ -29,13 +29,16 @@
     "config": {
       "type": "object",
       "properties": {
-        "http_method": {
-          "type": "string",
-          "description": "A string representing an HTTP method, such as GET, POST, PUT, or DELETE. The string must contain only uppercase letters."
-        },
-        "remove": {
+        "append": {
           "type": "object",
           "properties": {
+            "body": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": []
+            },
             "headers": {
               "type": "array",
               "items": {
@@ -49,8 +52,31 @@
                 "type": "string"
               },
               "default": []
-            },
+            }
+          }
+        },
+        "http_method": {
+          "type": "string",
+          "description": "A string representing an HTTP method, such as GET, POST, PUT, or DELETE. The string must contain only uppercase letters."
+        },
+        "remove": {
+          "type": "object",
+          "properties": {
             "body": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": []
+            },
+            "headers": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": []
+            },
+            "querystring": {
               "type": "array",
               "items": {
                 "type": "string"
@@ -62,6 +88,13 @@
         "rename": {
           "type": "object",
           "properties": {
+            "headers": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": []
+            },
             "querystring": {
               "type": "array",
               "items": {
@@ -70,13 +103,6 @@
               "default": []
             },
             "body": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": []
-            },
-            "headers": {
               "type": "array",
               "items": {
                 "type": "string"
@@ -117,6 +143,13 @@
         "add": {
           "type": "object",
           "properties": {
+            "querystring": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "default": []
+            },
             "body": {
               "type": "array",
               "items": {
@@ -125,39 +158,6 @@
               "default": []
             },
             "headers": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": []
-            },
-            "querystring": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": []
-            }
-          }
-        },
-        "append": {
-          "type": "object",
-          "properties": {
-            "body": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": []
-            },
-            "headers": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "default": []
-            },
-            "querystring": {
               "type": "array",
               "items": {
                 "type": "string"

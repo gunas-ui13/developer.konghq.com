@@ -22,6 +22,11 @@
     "config": {
       "type": "object",
       "properties": {
+        "verbose_response": {
+          "type": "boolean",
+          "description": "If enabled, the policy returns more verbose and detailed validation errors.",
+          "default": false
+        },
         "content_type_parameter_validation": {
           "type": "boolean",
           "description": "Determines whether to enable parameters validation of request content-type.",
@@ -59,19 +64,6 @@
           "items": {
             "type": "object",
             "properties": {
-              "in": {
-                "type": "string",
-                "enum": [
-                  "header",
-                  "path",
-                  "query"
-                ],
-                "description": "The location of the parameter."
-              },
-              "name": {
-                "type": "string",
-                "description": "The name of the parameter. Parameter names are case-sensitive, and correspond to the parameter name used by the `in` property. If `in` is `path`, the `name` field MUST correspond to the named capture group from the configured `route`."
-              },
               "required": {
                 "type": "boolean",
                 "description": "Determines whether this parameter is mandatory."
@@ -96,6 +88,19 @@
               "schema": {
                 "type": "string",
                 "description": "Required when `style` and `explode` are set. This is the schema defining the type used for the parameter. It is validated using `draft4` for JSON Schema draft 4 compliant validator. In addition to being a valid JSON Schema, the parameter schema MUST have a top-level `type` property to enable proper deserialization before validating."
+              },
+              "in": {
+                "type": "string",
+                "enum": [
+                  "header",
+                  "path",
+                  "query"
+                ],
+                "description": "The location of the parameter."
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the parameter. Parameter names are case-sensitive, and correspond to the parameter name used by the `in` property. If `in` is `path`, the `name` field MUST correspond to the named capture group from the configured `route`."
               }
             },
             "required": [
@@ -105,23 +110,8 @@
             ]
           },
           "description": "Array of parameter validator specification. One of `body_schema` or `parameter_schema` must be specified."
-        },
-        "verbose_response": {
-          "type": "boolean",
-          "description": "If enabled, the policy returns more verbose and detailed validation errors.",
-          "default": false
         }
       }
-    },
-    "route": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        }
-      },
-      "additionalProperties": false,
-      "description": "If set, the policy will only activate when receiving requests via the specified route. Leave unset for the policy to activate regardless of the route being used."
     },
     "service": {
       "type": "object",
@@ -142,6 +132,16 @@
       },
       "additionalProperties": false,
       "description": "If set, the policy will activate only for requests where the specified has been authenticated. (Note that some policies can not be restricted to consumers this way.). Leave unset for the policy to activate regardless of the authenticated Consumer."
+    },
+    "route": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "description": "If set, the policy will only activate when receiving requests via the specified route. Leave unset for the policy to activate regardless of the route being used."
     }
   }
 }

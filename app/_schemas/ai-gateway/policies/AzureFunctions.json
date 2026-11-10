@@ -34,9 +34,16 @@
           "description": "Use of HTTPS to connect with the Azure Functions server.",
           "default": true
         },
-        "appname": {
+        "clientid": {
           "type": "string",
-          "description": "The Azure app name."
+          "description": "The `clientid` to access the Azure resources. If provided, it is injected as the `x-functions-clientid` header.",
+          "x-referenceable": true,
+          "x-encrypted": true
+        },
+        "hostdomain": {
+          "type": "string",
+          "description": "The domain where the function resides.",
+          "default": "azurewebsites.net"
         },
         "functionname": {
           "type": "string",
@@ -63,16 +70,9 @@
           "x-referenceable": true,
           "x-encrypted": true
         },
-        "clientid": {
+        "appname": {
           "type": "string",
-          "description": "The `clientid` to access the Azure resources. If provided, it is injected as the `x-functions-clientid` header.",
-          "x-referenceable": true,
-          "x-encrypted": true
-        },
-        "hostdomain": {
-          "type": "string",
-          "description": "The domain where the function resides.",
-          "default": "azurewebsites.net"
+          "description": "The Azure app name."
         },
         "routeprefix": {
           "type": "string",
