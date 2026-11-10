@@ -2,12 +2,12 @@ openapi: 3.0.3
 info:
   title: Portal API
   description: Portal API
-  version: 3.4.3
+  version: 3.6.1
   contact:
     name: Kong
     url: 'https://cloud.konghq.com'
-  x-oas-source: kong/platform-api@75f67e9c148d0225a8321c01ceabf1a53b08467c
-  x-oas-source-link: 'https://github.com/Kong/platform-api/commit/75f67e9c148d0225a8321c01ceabf1a53b08467c'
+  x-oas-source: kong/platform-api@2d09c9afa672a89cb067bd132b11883727c80423
+  x-oas-source-link: 'https://github.com/Kong/platform-api/commit/2d09c9afa672a89cb067bd132b11883727c80423'
 servers:
   - url: 'https://custom.example.com'
     description: Production
@@ -4949,6 +4949,7 @@ components:
         - rbac_enabled
         - name
         - canonical_domain
+        - ai
       title: PortalContext
     PortalIntegrations:
       description: Configuration data for Dev Portal integrations

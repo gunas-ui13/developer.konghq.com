@@ -1,13 +1,13 @@
 openapi: 3.0.3
 info:
   title: Portal Management V3
-  version: 3.17.0
+  version: 3.17.1
   description: The management API for Portals
   contact:
     name: Kong
     url: 'https://konghq.com'
-  x-oas-source: kong/platform-api@8106b8178c4d25130510ea0313d1910be238a8f9
-  x-oas-source-link: 'https://github.com/Kong/platform-api/commit/8106b8178c4d25130510ea0313d1910be238a8f9'
+  x-oas-source: kong/platform-api@2d09c9afa672a89cb067bd132b11883727c80423
+  x-oas-source-link: 'https://github.com/Kong/platform-api/commit/2d09c9afa672a89cb067bd132b11883727c80423'
 servers:
   - url: 'https://us.api.konghq.com/v3'
     description: United-States Production region
@@ -958,9 +958,6 @@ paths:
           $ref: '#/components/responses/NotFound'
       tags:
         - Applications
-      x-terraform-id-to-object:
-        auth_strategy_id: auth_strategy.id
-        environment_id: environment.id
     get:
       operationId: list-applications
       summary: List Applications
@@ -1298,8 +1295,6 @@ paths:
                   $ref: '#/components/examples/CreateApplicationRegistrationConflictExample'
       tags:
         - Application Registrations
-      x-terraform-id-to-object:
-        api_id: api.id
     get:
       operationId: list-registrations-by-application
       summary: List Registrations by Application
@@ -5221,7 +5216,6 @@ components:
           type: string
           enum:
             - custom_certificate
-          x-terraform-transform-const: true
         custom_certificate:
           description: Custom certificate to be used for the SSL termination.
           type: string
@@ -5245,7 +5239,6 @@ components:
           type: string
           enum:
             - http
-          x-terraform-transform-const: true
       additionalProperties: false
       required:
         - domain_verification_method
@@ -9415,6 +9408,14 @@ components:
         auto_approve_developers: true
         canonical_domain: api.example.com
         notifications_developer_pii_visibility_enabled: false
+        ai:
+          enabled: false
+          features:
+            mcp_server:
+              enabled: false
+              write_operations_enabled: false
+            ai_search:
+              enabled: false
     UpdatePortalExampleRbacEnabled:
       value:
         authentication_enabled: true
@@ -9477,6 +9478,14 @@ components:
             auto_approve_developers: true
             default_domain: 123455678abcd.edge.us.portal.konghq.com
             canonical_domain: 123455678abcd.edge.us.portal.konghq.com
+            ai:
+              enabled: false
+              features:
+                mcp_server:
+                  enabled: false
+                  write_operations_enabled: false
+                ai_search:
+                  enabled: false
     ListPortalsBadRequestExample1:
       value:
         status: 400
@@ -12117,6 +12126,7 @@ components:
                     - canonical_domain
                     - created_at
                     - updated_at
+                    - ai
               meta:
                 $ref: '#/components/schemas/PaginatedMeta'
             additionalProperties: false
@@ -12230,6 +12240,7 @@ components:
               - canonical_domain
               - updated_at
               - created_at
+              - ai
             title: Portal
           examples:
             Example 1:

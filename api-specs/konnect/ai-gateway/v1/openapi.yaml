@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Konnect AI Gateway
-  version: 2.3.5
+  version: 2.3.8
   description: The API for configuring AI Gateways in Konnect.
   x-extensions-note: |
     Entities and properties may be annotated with `x-min-runtime-version`, the
@@ -18,8 +18,8 @@ info:
   contact:
     name: Kong
     url: 'https://cloud.konghq.com'
-  x-oas-source: kong/platform-api@39cdb9f4e1690fc61f53794015949f34df4c0ce3
-  x-oas-source-link: 'https://github.com/Kong/platform-api/commit/39cdb9f4e1690fc61f53794015949f34df4c0ce3'
+  x-oas-source: kong/platform-api@12d31b251dc3e9d761892d4ae7458f6f58dbc335
+  x-oas-source-link: 'https://github.com/Kong/platform-api/commit/12d31b251dc3e9d761892d4ae7458f6f58dbc335'
 servers:
   - url: 'https://us.api.konghq.com/v1'
     description: United-States Production region
@@ -4162,7 +4162,6 @@ components:
           type: string
           enum:
             - model
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/AIGatewayModelModelConfig'
         capabilities:
@@ -4254,7 +4253,6 @@ components:
           type: string
           enum:
             - api
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/AIGatewayModelAPIConfig'
         capabilities:
@@ -4634,7 +4632,6 @@ components:
           type: string
           enum:
             - consistent-hashing
-          x-terraform-transform-const: true
         hash_on_header:
           description: The header to use for consistent-hashing.
           type: string
@@ -4757,7 +4754,6 @@ components:
           type: string
           enum:
             - least-connections
-          x-terraform-transform-const: true
       additionalProperties: false
       required:
         - algorithm
@@ -4876,7 +4872,6 @@ components:
           type: string
           enum:
             - lowest-latency
-          x-terraform-transform-const: true
         latency_strategy:
           description: 'What metrics to use for latency. Available values are: `tpot` (time-per-output-token) and `e2e`.'
           type: string
@@ -5003,7 +4998,6 @@ components:
           type: string
           enum:
             - lowest-usage
-          x-terraform-transform-const: true
         tokens_count_strategy:
           description: Methodology to use for token usage calculation.
           type: string
@@ -5133,7 +5127,6 @@ components:
           type: string
           enum:
             - priority
-          x-terraform-transform-const: true
       additionalProperties: false
       required:
         - algorithm
@@ -5252,7 +5245,6 @@ components:
           type: string
           enum:
             - round-robin
-          x-terraform-transform-const: true
       additionalProperties: false
       required:
         - algorithm
@@ -5371,7 +5363,6 @@ components:
           type: string
           enum:
             - semantic
-          x-terraform-transform-const: true
         embeddings:
           description: Embeddings model configuration for this model.
           type: object
@@ -5456,7 +5447,6 @@ components:
           type: string
           enum:
             - bedrock
-          x-terraform-transform-const: true
         region:
           description: |
             The AWS region for the model.
@@ -5497,7 +5487,6 @@ components:
           type: string
           enum:
             - gemini
-          x-terraform-transform-const: true
         gcp_environment:
           $ref: '#/components/schemas/GCPModelConfig'
       additionalProperties: false
@@ -5514,7 +5503,6 @@ components:
           type: string
           enum:
             - huggingface
-          x-terraform-transform-const: true
         use_cache:
           description: Whether to use the Hugging Face inference cache.
           type: boolean
@@ -5550,7 +5538,6 @@ components:
           type: string
           enum:
             - ollama
-          x-terraform-transform-const: true
       additionalProperties: false
       required:
         - type
@@ -5565,7 +5552,6 @@ components:
           type: string
           enum:
             - openai
-          x-terraform-transform-const: true
       additionalProperties: false
       required:
         - type
@@ -5587,7 +5573,6 @@ components:
           type: string
           enum:
             - redis
-          x-terraform-transform-const: true
         dimensions:
           description: the desired dimensionality for the vectors
           type: integer
@@ -5790,7 +5775,6 @@ components:
           type: string
           enum:
             - pgvector
-          x-terraform-transform-const: true
         dimensions:
           description: the desired dimensionality for the vectors
           type: integer
@@ -6152,7 +6136,6 @@ components:
           type: string
           enum:
             - anthropic
-          x-terraform-transform-const: true
         version:
           description: The Anthropic API version to use.
           type: string
@@ -6256,7 +6239,6 @@ components:
           type: string
           enum:
             - azure
-          x-terraform-transform-const: true
         deployment_id:
           description: |
             The Azure deployment ID for the model. Applies when the Azure provider's
@@ -6383,7 +6365,6 @@ components:
           type: string
           enum:
             - baseten
-          x-terraform-transform-const: true
       required:
         - type
       x-min-runtime-version: '2.3'
@@ -6484,7 +6465,6 @@ components:
           type: string
           enum:
             - bedrock
-          x-terraform-transform-const: true
         region:
           description: |
             The AWS region for the model.
@@ -6630,7 +6610,6 @@ components:
           type: string
           enum:
             - cerebras
-          x-terraform-transform-const: true
       required:
         - type
     AIGatewayTargetCohereConfig:
@@ -6730,7 +6709,6 @@ components:
           type: string
           enum:
             - cohere
-          x-terraform-transform-const: true
         api_version:
           description: |
             Cohere API version. `v1` uses the legacy `/v1/chat` endpoint; `v2` (default)
@@ -6853,7 +6831,6 @@ components:
           type: string
           enum:
             - dashscope
-          x-terraform-transform-const: true
         international:
           description: Whether to use the international DashScope endpoint.
           type: boolean
@@ -6957,7 +6934,6 @@ components:
           type: string
           enum:
             - databricks
-          x-terraform-transform-const: true
         workspace_instance_id:
           description: The Databricks workspace instance ID.
           type: string
@@ -7061,7 +7037,6 @@ components:
           type: string
           enum:
             - deepseek
-          x-terraform-transform-const: true
       required:
         - type
     AIGatewayTargetGeminiConfig:
@@ -7161,7 +7136,6 @@ components:
           type: string
           enum:
             - gemini
-          x-terraform-transform-const: true
         gcp_environment:
           $ref: '#/components/schemas/GCPModelConfig'
       required:
@@ -7263,7 +7237,6 @@ components:
           type: string
           enum:
             - huggingface
-          x-terraform-transform-const: true
         use_cache:
           description: Whether to use the Hugging Face inference cache.
           type: boolean
@@ -7371,7 +7344,6 @@ components:
           type: string
           enum:
             - kimi
-          x-terraform-transform-const: true
         international:
           description: |
             When `true`, requests are sent to `api.moonshot.ai` (international).
@@ -7477,7 +7449,6 @@ components:
           type: string
           enum:
             - llama2
-          x-terraform-transform-const: true
         format:
           description: The request format to use when communicating with the Llama2 model.
           type: string
@@ -7586,7 +7557,6 @@ components:
           type: string
           enum:
             - mistral
-          x-terraform-transform-const: true
         format:
           description: The request format to use when communicating with the Mistral model.
           type: string
@@ -7693,7 +7663,6 @@ components:
           type: string
           enum:
             - ollama
-          x-terraform-transform-const: true
       required:
         - type
     AIGatewayTargetOpenaiConfig:
@@ -7793,7 +7762,6 @@ components:
           type: string
           enum:
             - openai
-          x-terraform-transform-const: true
       required:
         - type
     AIGatewayTargetVercelConfig:
@@ -7893,7 +7861,6 @@ components:
           type: string
           enum:
             - vercel
-          x-terraform-transform-const: true
       required:
         - type
     AIGatewayTargetVllmConfig:
@@ -7993,7 +7960,6 @@ components:
           type: string
           enum:
             - vllm
-          x-terraform-transform-const: true
       required:
         - type
         - upstream_url
@@ -8094,7 +8060,6 @@ components:
           type: string
           enum:
             - xai
-          x-terraform-transform-const: true
       required:
         - type
     AIGatewayTargetSagemakerConfig:
@@ -8194,7 +8159,6 @@ components:
           type: string
           enum:
             - sagemaker
-          x-terraform-transform-const: true
         aws:
           type: object
           additionalProperties: false
@@ -8237,7 +8201,6 @@ components:
           type: string
           enum:
             - typesafe
-          x-terraform-transform-const: true
         input_cost:
           description: Cost per 1M input tokens for billing and cost tracking.
           type: number
@@ -8556,7 +8519,6 @@ components:
           type: string
           enum:
             - konnect
-          x-terraform-transform-const: true
         config:
           type: object
           additionalProperties: false
@@ -8597,7 +8559,6 @@ components:
           type: string
           enum:
             - env
-          x-terraform-transform-const: true
         config:
           type: object
           properties:
@@ -8642,7 +8603,6 @@ components:
           type: string
           enum:
             - aws
-          x-terraform-transform-const: true
         config:
           type: object
           properties:
@@ -8734,7 +8694,6 @@ components:
           type: string
           enum:
             - gcp
-          x-terraform-transform-const: true
         config:
           type: object
           properties:
@@ -8807,7 +8766,6 @@ components:
           type: string
           enum:
             - azure
-          x-terraform-transform-const: true
         config:
           type: object
           properties:
@@ -8907,7 +8865,6 @@ components:
           type: string
           enum:
             - conjur
-          x-terraform-transform-const: true
         config:
           type: object
           properties:
@@ -8994,7 +8951,6 @@ components:
           type: string
           enum:
             - hcv
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/HashiCorpVaultConfig'
       required:
@@ -9098,7 +9054,6 @@ components:
           type: string
           enum:
             - token
-          x-terraform-transform-const: true
         token:
           description: The token string to be used for authentication.
           type: string
@@ -9178,7 +9133,6 @@ components:
           type: string
           enum:
             - cert
-          x-terraform-transform-const: true
         cert:
           description: The client certificate.
           type: string
@@ -9273,7 +9227,6 @@ components:
           type: string
           enum:
             - jwt
-          x-terraform-transform-const: true
         role:
           description: |
             The configured role name in HashiCorp Vault for JWT auth.
@@ -9372,7 +9325,6 @@ components:
           type: string
           enum:
             - approle
-          x-terraform-transform-const: true
         path:
           description: |
             Path for enabling the AppRole auth method. Single leading/trailing slashes are trimmed.
@@ -9473,7 +9425,6 @@ components:
           type: string
           enum:
             - kubernetes
-          x-terraform-transform-const: true
         role:
           description: |
             Role assigned to the Kubernetes service account.
@@ -9563,7 +9514,6 @@ components:
           type: string
           enum:
             - gcp_iam
-          x-terraform-transform-const: true
         role:
           description: The role to use for GCP IAM auth.
           type: string
@@ -9653,7 +9603,6 @@ components:
           type: string
           enum:
             - gcp_gce
-          x-terraform-transform-const: true
         role:
           description: The role to use for GCP GCE auth.
           type: string
@@ -9737,7 +9686,6 @@ components:
           type: string
           enum:
             - azure
-          x-terraform-transform-const: true
         role:
           description: The role to use for Azure auth.
           type: string
@@ -9821,7 +9769,6 @@ components:
           type: string
           enum:
             - aws_ec2
-          x-terraform-transform-const: true
         role:
           description: The role to use for AWS EC2 auth.
           type: string
@@ -9909,7 +9856,6 @@ components:
           type: string
           enum:
             - aws_iam
-          x-terraform-transform-const: true
         role:
           description: The role to use for AWS IAM auth.
           type: string
@@ -10112,7 +10058,6 @@ components:
           type: string
           enum:
             - redis-ce
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/RedisCEDatastoreConfig'
       required:
@@ -10187,7 +10132,6 @@ components:
           type: string
           enum:
             - redis-ee
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/RedisEEDatastoreConfig'
       required:
@@ -10346,7 +10290,6 @@ components:
           type: string
           enum:
             - vectordb
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/VectorDBDatastoreConfig'
       required:
@@ -10436,7 +10379,6 @@ components:
           type: string
           enum:
             - token-vault
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/TokenVaultDatastoreConfig'
       required:
@@ -10866,7 +10808,6 @@ components:
           type: string
           enum:
             - installed
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this custom policy.
           type: string
@@ -10900,7 +10841,6 @@ components:
           type: string
           enum:
             - streaming
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this custom policy.
           type: string
@@ -10950,7 +10890,6 @@ components:
           type: string
           enum:
             - installed
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this custom policy.
           type: string
@@ -10984,7 +10923,6 @@ components:
           type: string
           enum:
             - streaming
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this custom policy.
           type: string
@@ -11034,7 +10972,6 @@ components:
           type: string
           enum:
             - installed
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this custom policy.
           type: string
@@ -11077,7 +11014,6 @@ components:
           type: string
           enum:
             - streaming
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this custom policy.
           type: string
@@ -11798,7 +11734,6 @@ components:
           type: string
           enum:
             - conversion-only
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/AIGatewayMCPServerWithUpstreamNoProxyConfigNoServerConfig'
         tools:
@@ -11847,7 +11782,6 @@ components:
           type: string
           enum:
             - conversion-listener
-          x-terraform-transform-const: true
         config:
           description: Server-side configuration specific to modes where Kong answers as the MCP server.
           type: object
@@ -12000,7 +11934,6 @@ components:
           type: string
           enum:
             - listener
-          x-terraform-transform-const: true
         config:
           description: Server-side configuration specific to modes where Kong answers as the MCP server.
           type: object
@@ -12117,7 +12050,6 @@ components:
           type: string
           enum:
             - passthrough-listener
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/AIGatewayMCPServerWithUpstreamConfig'
         tools:
@@ -12234,7 +12166,6 @@ components:
           type: string
           enum:
             - upstream-server
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/AIGatewayMCPServerUpstreamServerConfig'
         tools:
@@ -12384,7 +12315,6 @@ components:
           default: consumer
           enum:
             - consumer
-          x-terraform-transform-const: true
         acls:
           description: |
             Server-level access control rules for allowing or denying consumer groups. This is the
@@ -12439,7 +12369,6 @@ components:
           type: string
           enum:
             - oauth_access_token
-          x-terraform-transform-const: true
         access_token_claim_field:
           description: |
             The claim in the OAuth2 access token to use as the subject for ACL evaluation when `acl_attribute_type` is set to `oauth_access_token`.
@@ -12695,7 +12624,6 @@ components:
           type: string
           enum:
             - aws
-          x-terraform-transform-const: true
         access_key_id:
           description: |
             AWS Access Key ID to be used for authentication.
@@ -12749,7 +12677,6 @@ components:
           type: string
           enum:
             - azure
-          x-terraform-transform-const: true
         client_id:
           description: |
             Azure Client ID.
@@ -12781,7 +12708,6 @@ components:
           type: string
           enum:
             - gcp
-          x-terraform-transform-const: true
         service_account_json:
           description: |
             GCP Service Account JSON.
@@ -13589,7 +13515,6 @@ components:
           type: string
           enum:
             - jwt
-          x-terraform-transform-const: true
       additionalProperties: false
       required:
         - type
@@ -13618,7 +13543,6 @@ components:
           type: string
           enum:
             - credentials
-          x-terraform-transform-const: true
         token_endpoint:
           description: |
             The token endpoint URL for fetching the OAuth 2.0 access token using client-credentials.
@@ -13708,7 +13632,6 @@ components:
           type: string
           enum:
             - conversion-only
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/AIGatewayMCPServerWithUpstreamNoProxyConfigNoServerConfig'
         tools:
@@ -13767,7 +13690,6 @@ components:
           type: string
           enum:
             - conversion-listener
-          x-terraform-transform-const: true
         config:
           description: Server-side configuration specific to modes where Kong answers as the MCP server.
           type: object
@@ -13930,7 +13852,6 @@ components:
           type: string
           enum:
             - listener
-          x-terraform-transform-const: true
         config:
           description: Server-side configuration specific to modes where Kong answers as the MCP server.
           type: object
@@ -14057,7 +13978,6 @@ components:
           type: string
           enum:
             - passthrough-listener
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/AIGatewayMCPServerWithUpstreamConfig'
         tools:
@@ -14120,7 +14040,6 @@ components:
           type: string
           enum:
             - upstream-server
-          x-terraform-transform-const: true
         config:
           $ref: '#/components/schemas/AIGatewayMCPServerUpstreamServerConfig'
         tools:
@@ -14310,7 +14229,6 @@ components:
           type: string
           enum:
             - key-auth
-          x-terraform-transform-const: true
         config:
           description: |
             Configuration for the Kong Key auth identity provider.
@@ -14399,7 +14317,6 @@ components:
           type: string
           enum:
             - openid-connect
-          x-terraform-transform-const: true
         config:
           description: |
             Configuration for the OpenID Connect identity provider.
@@ -14719,7 +14636,6 @@ components:
           type: string
           enum:
             - key-auth
-          x-terraform-transform-const: true
         config:
           description: |
             Configuration for the key-auth auth strategy.
@@ -14823,7 +14739,6 @@ components:
           type: string
           enum:
             - openid-connect
-          x-terraform-transform-const: true
         token_vault:
           $ref: '#/components/schemas/AIGatewayTokenVaultEnrollmentProtection'
         config:
@@ -15150,7 +15065,6 @@ components:
           type: string
           enum:
             - anthropic
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15195,7 +15109,6 @@ components:
           type: string
           enum:
             - baseten
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15239,7 +15152,6 @@ components:
           type: string
           enum:
             - cerebras
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15282,7 +15194,6 @@ components:
           type: string
           enum:
             - cohere
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15325,7 +15236,6 @@ components:
           type: string
           enum:
             - dashscope
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15368,7 +15278,6 @@ components:
           type: string
           enum:
             - databricks
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15411,7 +15320,6 @@ components:
           type: string
           enum:
             - deepseek
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15454,7 +15362,6 @@ components:
           type: string
           enum:
             - huggingface
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15497,7 +15404,6 @@ components:
           type: string
           enum:
             - kimi
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15540,7 +15446,6 @@ components:
           type: string
           enum:
             - llama2
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15583,7 +15488,6 @@ components:
           type: string
           enum:
             - mistral
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15626,7 +15530,6 @@ components:
           type: string
           enum:
             - ollama
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15669,7 +15572,6 @@ components:
           type: string
           enum:
             - openai
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15712,7 +15614,6 @@ components:
           type: string
           enum:
             - vercel
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15755,7 +15656,6 @@ components:
           type: string
           enum:
             - vllm
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15798,7 +15698,6 @@ components:
           type: string
           enum:
             - xai
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15843,7 +15742,6 @@ components:
           type: string
           enum:
             - typesafe
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15887,7 +15785,6 @@ components:
           type: string
           enum:
             - basic
-          x-terraform-transform-const: true
         headers:
           type: array
           items:
@@ -15950,7 +15847,6 @@ components:
           type: string
           enum:
             - bedrock
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -15999,7 +15895,6 @@ components:
           type: string
           enum:
             - aws
-          x-terraform-transform-const: true
         access_key_id:
           description: |
             The access key id for authenticating with static IAM User credentials.
@@ -16065,7 +15960,6 @@ components:
           type: string
           enum:
             - aws
-          x-terraform-transform-const: true
         access_key_id:
           description: |
             The access key id for authenticating with static IAM User credentials.
@@ -16123,7 +16017,6 @@ components:
           type: string
           enum:
             - azure
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -16203,7 +16096,6 @@ components:
           type: string
           enum:
             - azure
-          x-terraform-transform-const: true
         client_id:
           description: |
             If azure_use_managed_identity is set to true, and you need to use a different user-assigned identity for this LLM instance, set the client ID.
@@ -16239,7 +16131,6 @@ components:
           type: string
           enum:
             - gemini
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -16288,7 +16179,6 @@ components:
           type: string
           enum:
             - gcp
-          x-terraform-transform-const: true
         service_account_json:
           description: |
             Full JSON string of the GCP service account to authenticate. If not set (and gcp_use_service_account is true), the service account JSON will be from the environment variable GCP_SERVICE_ACCOUNT.
@@ -16364,7 +16254,6 @@ components:
           type: string
           enum:
             - sagemaker
-          x-terraform-transform-const: true
         display_name:
           description: The display name for this model provider instance.
           type: string
@@ -16746,7 +16635,6 @@ components:
           type: string
           enum:
             - key-auth
-          x-terraform-transform-const: true
         config:
           description: |
             Configuration for the Kong Key auth identity provider.
@@ -16844,7 +16732,6 @@ components:
           type: string
           enum:
             - openid-connect
-          x-terraform-transform-const: true
         config:
           description: |
             Configuration for the OpenID Connect identity provider.
@@ -17196,7 +17083,6 @@ components:
           type: string
           enum:
             - key-auth
-          x-terraform-transform-const: true
         config:
           description: |
             Configuration for the key-auth auth strategy.
@@ -17309,7 +17195,6 @@ components:
           type: string
           enum:
             - openid-connect
-          x-terraform-transform-const: true
         token_vault:
           $ref: '#/components/schemas/AIGatewayTokenVaultEnrollmentProtection'
         config:
